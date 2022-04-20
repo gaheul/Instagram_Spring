@@ -1,0 +1,195 @@
+
+.m-contaier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_in{
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
+}
+
+.m-contaier-side{
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    
+    width: 237px;
+    height: 823px;
+}
+
+
+.m-contaier-side ul{
+    width: 237px;
+    height: 120px;
+    padding: 16px 16px 16px 30px;
+}
+
+.m-contaier-side ul li{
+    width: 100%;
+    height: 60px;
+    
+}
+
+.m-contaier-side ul li a{
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+
+}
+
+.m-container-main{
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    
+    
+  
+}
+
+.main-profile{
+    margin: 32px 0 0;
+    width: 696px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-img{
+    width: 38px;
+    height: 38px;
+    margin: 2px 32px 0 124px;
+}
+.profile-img img{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.profile-name{
+    width: 119.7px;
+    height: 42px;
+    margin: 0 20 0 0;
+}
+
+.profile-name h1{
+    width: 100%;
+    height: 22px;
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 2px;
+}
+
+.profile-change{
+    width: 100%;
+    height: 18px;
+    border: none;
+    color: #0095f6;
+    font-size: 14px;
+}
+
+.main{
+    width: 696px;
+    margin: 16px 0;
+}
+
+.main-group{
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px
+    
+}
+
+.group-label{
+    width:194px;
+   
+    padding: 0 32px;
+    margin: 6px 0 0;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.group-label label{
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+
+.main-in-group{
+     padding-right :60px;
+     width: 502px;
+     
+     display: flex;
+     
+}
+
+.group-input{
+    width: 355px;
+    
+}
+
+.group-input input{
+    width: 355px;
+    height: 32px;
+    padding: 0 10px;
+    outline: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+.input-text{
+    margin: 16px 0 8px;
+}
+
+.text-group{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.text-data{
+    margin: -2px 0 -3px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8e8e8e;
+    letter-spacing: 1px;
+}
+
+.text-username{
+    margin: -2px 0 -3px;
+    font-size: 10px;
+    line-height: 16px;
+    color: #8e8e8e;
+    letter-spacing: 1px;
+}
+
+.text-username > a{
+    color: #0095f6;
+}
+
+.main-group:nth-child(3){
+    width: 100%;
+    height: 32px;
+}
+
+.main-group:nth-child(4) input{
+    width: 355px;
+    height: 60px;
+    padding: 6px 10px;
+}
+
+.main-group:nth-child(5){
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
+
+
+
