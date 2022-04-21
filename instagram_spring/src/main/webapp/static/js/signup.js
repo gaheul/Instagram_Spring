@@ -2,8 +2,13 @@ const input_datas = document.querySelectorAll('.input-data');
 const password_visible = document.querySelector('.password-visible');
 const submitBtn = document.querySelector('.submit-btn');
 
+
+let checkFlag = [false,false,false,false];
+
 submitBtn.onclick = () => {
-	document.querySelector('form').submit();
+	if(checkFlag.indexOf(false) == -1){ //indexof : index번호찾음 -> false가 하나도없으면 -1
+		document.querySelector('form').submit();		
+	}
 }
 
 
@@ -42,10 +47,33 @@ for(let i =0; i<input_datas.length; i++){
 
     input.onblur = () => { //onblur :포커스가 벗어났을때
         const inputMsg = document.querySelectorAll('.input-msg');
+        
         if(input.value.length==0 ){
-            inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;         
-        }else{
+            inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;   
+            checkFlag[i] = false;      
+        }else {
             inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-check" style="color:#8e8e8e;"></i>`;
+            checkFlag[i] = true;   
+	        if(i==2){
+				$.ajax({
+					type: "get",
+					url: "/app/auth/username/check",
+					data: {
+						"username": input.value
+					},
+					dataType: "text", //데이터를 보내고 받을 때 type
+					success: function(data){ //(data)-> controller return값
+						if(data == "true"){
+							inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;   
+							checkFlag[i] = false;  
+						}else{
+							inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-check" style="color:#8e8e8e;"></i>`;
+							checkFlag[i] = true;  
+						}
+						
+					}
+				});
+			}
             
         }
     }
