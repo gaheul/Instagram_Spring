@@ -24,17 +24,17 @@
                     <div class="item-box">
                         <h1 class="b-logo"><img src="/app/static/images/logo.PNG"></h1>
                         <div class="items-group">
-                            <div class="items-group-form">
+                            <form action="/app/auth/signin"  class="items-group-form" method="post">
                                 <div class="input-items">
                                     <label for="username">전화번호, 사용자 이름 또는 이메일</label>
-                                    <input type="text" id="username">
+                                    <input type="text" id="username" name="username">
                                 </div>
                                 <div class="input-items">
                                     <label for="password">비밀번호</label>
-                                    <input type="password" id="password">
+                                    <input type="password" id="password" name="password">
                                 </div>
                                 <div class="input-items">
-                                    <button type="button">로그인</button>
+                                    <button type="submit">로그인</button>
                                 </div>
                                 <div class="input-items">
                                     <div class="hr-sect"><span>또는</span></div>
@@ -44,7 +44,7 @@
                                         <span><i class="fa-brands fa-facebook-square"></i>Facebook으로 로그인</span>
                                     </a>
                                 </div>
-                            </div>
+                            </form>
                             <a href="#">비밀번호를 잊으셨나요?</a>
                         </div>
                     </div>

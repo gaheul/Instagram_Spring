@@ -12,4 +12,35 @@
 		where
 			username = #{username};
 	</select>
+	
+	<insert id="signup" parameterType="com.instagram.app.domain.user.User">
+		insert into
+			user_mst
+		values(
+			0,
+			#{phone},
+			#{email},
+			#{name},
+			#{username},
+			#{password},
+			now(),
+			now()
+		);
+	</insert>
+	
+	<select id="getUserByUsername" parameterType="String" resultType="com.instagram.app.domain.user.User">
+		select
+			usercode,
+			phone,
+			email,
+			name,
+			username,
+			password,
+			create_date,
+			update_date
+		from
+			user_mst
+		where
+			username = #{username};
+	</select>
  </mapper>
