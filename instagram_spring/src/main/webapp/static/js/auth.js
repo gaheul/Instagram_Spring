@@ -38,15 +38,7 @@ password_input.onkeyup = () => {
     }
 }
 
-singin_button.onclick = () => {
-    if(username_input.value.length==0  ){
-        alert("아이디를 입력해주세요")      
-        }else if(password_input.value.length==0){
-                alert("비밀번호를 입력해주세요")
-            }else{
-                alert("로그인시도");
-            }
-    }
+
 
 username_input.onkeydown = () =>{
     if(window.event.keyCode==13){

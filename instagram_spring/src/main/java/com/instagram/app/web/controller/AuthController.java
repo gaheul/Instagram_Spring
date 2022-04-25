@@ -4,6 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.instagram.app.auth.PrincipalService;
+import com.instagram.app.domain.user.User;
 import com.instagram.app.service.AuthService;
 import com.instagram.app.web.dto.auth.SignupRequestDto;
 import com.instagram.app.web.util.auth.AuthResponseScript;
@@ -22,13 +27,11 @@ public class AuthController {
 	@Autowired
 	private AuthService authService;
 	
-	@RequestMapping(value = "/auth/signin", method = RequestMethod.GET) //script에서 get요청 날림
-	public String getSingin() {
-		return "auth/signin";
-	}
+	
+	
 	
 	@RequestMapping(value = "/auth/signin", method = RequestMethod.POST) 
-	public String SigninSubmit(String username, String password) throws UnsupportedEncodingException {
+	public String SigninSubmit(String username, String password, HttpServletRequest request) throws UnsupportedEncodingException {
 		AuthValidation authValidation = new AuthValidation();
 		Map<Boolean, String> usernameIsNull = authValidation.isNull("username",username);
 		Map<Boolean, String> passwordIsNull = authValidation.isNull("password",password);
@@ -40,16 +43,21 @@ public class AuthController {
 			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode(passwordIsNull.get(true),"UTF-8");
 		}
 		
-		return "index";
-	}
-	
-	
-	@RequestMapping(value = "/auth/signup", method = RequestMethod.GET)
-	public String getSignup(SignupRequestDto signupRequestDto) { //dto로 생성 :변수명이 쿼리스트링이랑 일치
-		                    //@RequestParam(name) 매개변수 ->name값만 맞춰주면됨 /변수명이 name과 같으면 (name)생략가능 /@RequestParam(name)생략가능
+		User user =authService.signin(username, password);
+		if(user != null) {
+			//session / session->request , 매개변수에 request
+			HttpSession session = request.getSession();
+			session.setAttribute("principal", user);
+		}else {
+			//로그인 실패 메세지 전달
+			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode("로그인 정보를 확인해주세요.","UTF-8");
+		}
 		
-		return "auth/signup";
+		return "redirect: /app/";
 	}
+	
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/auth/signup", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
@@ -64,5 +72,12 @@ public class AuthController {
 	public String usernameCheck(String username) {
 		
 		return Boolean.toString(authService.checkUsername(username));
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String signout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect: /app/auth/signin";
 	}
 }

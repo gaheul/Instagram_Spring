@@ -50,7 +50,7 @@
                     </div>
                     <div class="item-box">
                         <div class="signup-items">
-                            <p>계정이 없으신가요?<a href="signup.html">가입하기</a></p>
+                            <p>계정이 없으신가요?<a href="/app/auth/signup">가입하기</a></p>
                         </div>
                     </div>  
                     <div class="r-content-footer">                  
