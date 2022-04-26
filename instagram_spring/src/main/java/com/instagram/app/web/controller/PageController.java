@@ -33,4 +33,9 @@ public class PageController {//필요한 page의 데이터
 	 * return "auth/signup"; }
 	 */
 	
+	@RequestMapping(value = "/profile/account",method = RequestMethod.GET)
+	public String getAccount() {
+		return "profile/account/account";
+	}
+	
 }

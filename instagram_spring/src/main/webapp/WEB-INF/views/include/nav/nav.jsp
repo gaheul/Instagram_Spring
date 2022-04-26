@@ -21,7 +21,7 @@
                     <li><i class="fa-solid fa-square-plus"></i></li>
                     <li>
                         <div class="profile-img-border">
-                            <img class="profile-img" src="/app/static/images/insta.jpg" alt="">
+                           <a href="/app/profile/account"><img class="profile-img" src="/app/static/images/insta.jpg"></a> 
                         </div>
                     </li>
                 </ul>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.instagram.app.domain.profile.ProfileRepository">
+	
+	<select id="getAccountProfileByUsercode" parameterType="Integer" resultType="com.instagram.app.domain.profile.Account">
+		select
+			um.usercode,
+			
+			um.username,
+			um.name,
+			um.email,
+			um.phone,
+			
+			ud.img_url,
+			ud.website,
+			ud.introduce,
+			ud.gender,
+			
+			um.create_date,
+			um.update_date
+		from
+			user_mst um
+			left outer join user_dtl ud on(ud.usercode = um.usercode)
+		where
+			um.usercode = #{usercode};
+	</select>
+ </mapper>
