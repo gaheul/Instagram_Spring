@@ -27,4 +27,31 @@
 		where
 			um.usercode = #{usercode};
 	</select>
+	
+	<update id="updateUserMst" parameterType="com.instagram.app.domain.profile.Account">
+		update
+			user_mst
+		set
+			username=#{username},
+			name=#{name},
+			email = #{email},
+			phone = #{phone},
+			
+			update_date = now()
+		where
+			usercode=#{usercode};
+	</update>
+	
+	<update id="updateUserDtl" parameterType="com.instagram.app.domain.profile.Account">
+		update
+			user_dtl
+		set
+			website= #{website},
+			introduce = #{introduce},
+			gender =#{gender},
+			
+			update_date = now()
+		where
+			usercode=#{usercode};
+	</update>
  </mapper>

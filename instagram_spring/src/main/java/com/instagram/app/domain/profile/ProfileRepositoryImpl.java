@@ -16,5 +16,15 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 		
 		return session.selectOne(NAME_SPACE + "getAccountProfileByUsercode", usercode);
 	}
+	
+	@Override
+	public int updateUserMst(Account account) {
+		return session.update(NAME_SPACE + "updateUserMst", account);
+	}
+	
+	@Override
+	public int updateUserDtl(Account account) {
+		return session.update(NAME_SPACE + "updateUserDtl", account);
+	}
 
 }
