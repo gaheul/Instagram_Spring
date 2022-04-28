@@ -21,12 +21,16 @@
             <div id="container">
                 <article>
                     <section class="side-bar">
-                        <div class="side-bar-item clicked">
-                            <h3>프로필 편집</h3>
-                        </div>
-                        <div class="side-bar-item">
-                            <h3>비밀번호 변경</h3>
-                        </div>
+                        <a href="/app/profile/account">
+	                        <div class="side-bar-item clicked">
+	                            <h3>프로필 편집</h3>
+	                        </div>
+                        </a>
+                        <a href="/app/profile/account/password">
+	                        <div class="side-bar-item">
+	                            <h3>비밀번호 변경</h3>
+	                        </div>
+                        </a>
                         <div class="side-bar-item">
                             <h3>앱 및 웹사이트</h3>
                         </div>

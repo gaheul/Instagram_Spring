@@ -54,4 +54,13 @@
 		where
 			usercode=#{usercode};
 	</update>
+	
+	<update id="updatePassword" parameterType="com.instagram.app.domain.user.User">
+		update
+			user_mst
+		set
+			password = #{password}
+		where
+			usercode = #{usercode};
+	</update>
  </mapper>
