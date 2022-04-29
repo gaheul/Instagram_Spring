@@ -33,5 +33,15 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 	public int updatePassword(User user) {
 		return session.update(NAME_SPACE + "updatePassword",user);
 	}
+	
+	@Override
+	public int updateProfileImg(ProfileImg profileImg) {
+		return session.update(NAME_SPACE + "updateProfileImg", profileImg);
+	}
+	
+	@Override
+	public ProfileImg getProfileImg(int usercode) {
+		return session.selectOne(NAME_SPACE + "getProfileImg", usercode);
+	}
 
 }

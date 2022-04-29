@@ -63,4 +63,23 @@
 		where
 			usercode = #{usercode};
 	</update>
+	
+	<update id="updateProfileImg" parameterType="com.instagram.app.domain.profile.ProfileImg">
+		update
+			user_dtl
+		set
+			img_url = #{img_url}
+		where
+			usercode = #{usercode};
+	</update>
+	
+	<select id="getProfileImg" parameterType="Integer" resultType="com.instagram.app.domain.profile.ProfileImg">
+		select
+			usercode,
+			img_url
+		from
+			user_dtl
+		where
+			usercode = #{usercode};
+	</select>
  </mapper>

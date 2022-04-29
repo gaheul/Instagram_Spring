@@ -3,6 +3,11 @@ const textInputs = document.querySelectorAll(".text-input");
 const introduceText = document.querySelector(".text-textarea");
 const submitBtn = document.querySelector(".submit-btn");
 
+//이미지 변경
+const profileImgFile = document.querySelector(".profile-img-file");
+const profileImgRound = document.querySelector(".profile-img-round");
+const updateImgBtn = document.querySelector(".update-img-button");
+
 let usercode = 0;
 
 let principal = getPrincipal(); //호출했을 때 동기-> principal이 생성되고 usercode사용
@@ -78,3 +83,54 @@ function createAccount(){
 	}
 	return account;
 }
+
+profileImgRound.onclick = () => {
+	imgChange();
+}
+
+updateImgBtn.onclick = () => {
+	imgChange();
+}
+
+function imgChange(){
+	//파일 객체 생성
+	profileImgFile.click();
+	
+	//클릭되어졌을때
+	profileImgFile.onchange = () =>{ //파일객체(태그)안에서 값이 변경되었을 때  1
+		let reader = new FileReader();
+		
+		reader.onload = (e) => { //  3
+			let profileImgUrl = e.target.result; //이벤트가 일어난 해당객체에서의 profileImgFile 결과
+			let originImgUrl = profileImgRound.querySelector('img').src;
+			profileImgRound.querySelector('img').src = profileImgUrl;
+
+			if(confirm("프로필 이미지를 변경하시겠습니까?")){
+				let formData = new FormData(document.querySelector(".profile-box-form1"));
+				
+				$.ajax({
+					type: "post",
+					url: "/app/profile/account/update/img",
+					data: formData,
+					encType: "multipart/form-data", //multipart/form-data -> entype,processdata,contenttype 항상 입력
+					processData: false,
+					contentType: false,
+					dataType: "text",
+					success: function(data){
+						alert("프로필 이미지가 변경되었습니다.");
+					},
+					error: function(){
+						alert("비동기 처리 오류");
+					}
+				});
+			}else{
+				profileImgRound.querySelector('img').src = originImgUrl;
+			}
+		}
+		
+		reader.readAsDataURL(profileImgFile.files[0]); //선택한 이미지의 url  2
+	}	
+}
+
+
+

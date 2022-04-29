@@ -7,4 +7,6 @@ public interface ProfileRepository {
 	public int updateUserMst(Account account);
 	public int updateUserDtl(Account account);
 	public int updatePassword(User user);
+	public int updateProfileImg(ProfileImg profileImg);
+	public ProfileImg getProfileImg(int usercode);
 }
