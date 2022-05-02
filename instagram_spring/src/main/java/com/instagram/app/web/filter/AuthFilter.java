@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Component;
 
+import com.instagram.app.config.FileConfig;
 import com.instagram.app.domain.user.User;
 
 @Component
@@ -24,7 +25,7 @@ public class AuthFilter implements Filter {
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
+		FileConfig.profileImgPath = filterConfig.getServletContext().getRealPath("/static/fileupload");
 	}
 	
 	@Override

@@ -60,7 +60,7 @@
                         <form class="profile-box-form1" enctype="multipart/form-data"> <!-- 파일 이미지 업로드 : multipart/form-data -->
                             <div class="box-item-left">
                                 <div class="profile-img-round">
-                                    <img src="/app/static/images/insta.jpg" >
+                                    <img src="" >
                                 </div>
                             </div>
                             <div class="box-item-right">
@@ -177,7 +177,7 @@
 
         </footer>
     </section>
-    <script type="text/javascript" src="/app/static/js/principal.js"></script>
+    
      <script type="text/javascript" src="/app/static/js/account.js"></script>
 </body>
 

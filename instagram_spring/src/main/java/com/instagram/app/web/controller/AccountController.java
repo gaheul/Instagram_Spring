@@ -1,5 +1,6 @@
 package com.instagram.app.web.controller;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,8 +18,8 @@ import com.instagram.app.domain.user.User;
 import com.instagram.app.service.AuthService;
 import com.instagram.app.service.ProfileService;
 import com.instagram.app.web.dto.account.PasswordUpdateReqDto;
-import com.instagram.app.web.dto.AccountUpdateImgReqDto;
 import com.instagram.app.web.dto.account.AccountResponseDto;
+import com.instagram.app.web.dto.account.AccountUpdateImgReqDto;
 import com.instagram.app.web.dto.account.AccountUpdateReqDto;
 
 import lombok.RequiredArgsConstructor;
@@ -64,6 +65,7 @@ public class AccountController {
 	@RequestMapping(value = "/profile/account/update/img", method = RequestMethod.POST)
 	public String updateProfileImg(HttpServletRequest request, AccountUpdateImgReqDto accountUpdateImgReqDto) {
 		//System.out.println("파일 객체 : " + accountUpdateImgReqDto.getFile().getOriginalFilename()); //multipart데이터 -> getname:경로까지 포함, original: 파일이름, tranferto:객체 저장 ...
+		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("principal");
 		boolean result = profileService.updateProfileImg(user, accountUpdateImgReqDto);

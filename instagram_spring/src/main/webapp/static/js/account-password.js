@@ -2,6 +2,8 @@ const profileUsername = document.querySelector(".profile-username");
 const passwordInputs = document.querySelectorAll(".password-input");
 const submitBtn = document.querySelector(".submit-btn");
 const boxItemLefts = document.querySelectorAll(".box-item-left");
+//이미지변경
+const profileImgRound = document.querySelector(".profile-img-round");
 
 
 let usercode = 0;
@@ -12,6 +14,8 @@ load();
 
 function load(){
 	profileUsername.textContent = principal.username;
+	const profileImg = profileImgRound.querySelector('img');
+	profileImg.src = getProfileImg();
 }
 
 function isEmpty(str){ //결과 true,flase

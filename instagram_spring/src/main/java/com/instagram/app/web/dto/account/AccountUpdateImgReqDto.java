@@ -1,4 +1,4 @@
-package com.instagram.app.web.dto;
+package com.instagram.app.web.dto.account;
 
 import org.springframework.web.multipart.MultipartFile;
 

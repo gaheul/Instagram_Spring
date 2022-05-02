@@ -2,8 +2,8 @@ package com.instagram.app.service;
 
 import com.instagram.app.web.dto.account.PasswordUpdateReqDto;
 import com.instagram.app.domain.user.User;
-import com.instagram.app.web.dto.AccountUpdateImgReqDto;
 import com.instagram.app.web.dto.account.AccountResponseDto;
+import com.instagram.app.web.dto.account.AccountUpdateImgReqDto;
 import com.instagram.app.web.dto.account.AccountUpdateReqDto;
 
 public interface ProfileService {
