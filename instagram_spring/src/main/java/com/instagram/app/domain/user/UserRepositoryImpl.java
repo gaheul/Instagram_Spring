@@ -18,7 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 	
 	@Override
-	public int signup(User user) {
+	public int signup(User user) { //insert,update,delete는 int로 고정
 		return session.insert(NAME_SPACE + "signup",user);
 	}
 	

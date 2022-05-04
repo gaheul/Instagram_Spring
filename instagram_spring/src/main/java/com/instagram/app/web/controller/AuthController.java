@@ -63,14 +63,13 @@ public class AuthController {
 	@RequestMapping(value = "/auth/signup", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
 	public String signupSubmit(SignupRequestDto signupRequestDto) {
 		boolean result= authService.signup(signupRequestDto);
-		AuthResponseScript script = new AuthResponseScript();
+		AuthResponseScript script = new AuthResponseScript(); //@ResponseBody를 하지않으면 페이지 리턴 -> 회원가입완료메세지안뜸 => html(script)형태로 return
 		return script.signupScirpt(result);
 	}
 	
-	@ResponseBody //데이터만 주고받음
+	@ResponseBody //데이터만 주고받음 / 결과가 html,데이터를 리턴해줄건지 -> js에서 text
 	@RequestMapping(value = "/auth/username/check", method = RequestMethod.GET)
 	public String usernameCheck(String username) {
-		
 		return Boolean.toString(authService.checkUsername(username));
 	}
 	

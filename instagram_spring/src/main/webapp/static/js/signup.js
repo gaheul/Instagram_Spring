@@ -61,7 +61,7 @@ for(let i =0; i<input_datas.length; i++){
 					data: {
 						"username": input.value
 					},
-					dataType: "text", //데이터를 보내고 받을 때 type
+					dataType: "text", //데이터를 보내고 받을 때(response) type
 					success: function(data){ //(data)-> controller return값
 						if(data == "true"){
 							inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;   

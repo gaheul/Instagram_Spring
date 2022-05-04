@@ -7,7 +7,8 @@ public class AuthResponseScript {
 		if(result) {
 			script.append("<script>");
 			script.append("alert(\"회원가입 완료.\");");
-			script.append("location.replace(\"/app/auth/signin\");"); //replace : 이전의 데이터를 지우고 새로운데이터
+			script.append("location.replace(\"/app/auth/signin\");"); 
+			//replace : 이전의 데이터(history)를 지우고(초기화) 새로운데이터 = sendredirect - href: 뒤로가기 가능(history 가지고있음) = forward
 			script.append("</script>");
 		}else {
 			script.append("<script>");

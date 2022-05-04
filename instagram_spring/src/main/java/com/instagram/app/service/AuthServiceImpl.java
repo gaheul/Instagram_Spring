@@ -22,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
 	
 	@Override
 	public boolean signup(SignupRequestDto signupRequestDto) {
-		int result = userRepository.signup(signupRequestDto.toEntity());
+		int result = userRepository.signup(signupRequestDto.toEntity()); //signupRequestDto.toEntity()->user객체
 		return result != 0;
 	}
 	

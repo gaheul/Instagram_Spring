@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>instagram</title>
-    <link rel="stylesheet" href="/app/static/css/style.css">
+    <link rel="stylesheet" href="/app/static/css/style.css"> <!-- web->서버로 보낼땐 /app/무조건넣어야함 -->
     <link rel="stylesheet" href="/app/static/css/signup.css">
     <script src="https://kit.fontawesome.com/a29a2deeae.js" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>

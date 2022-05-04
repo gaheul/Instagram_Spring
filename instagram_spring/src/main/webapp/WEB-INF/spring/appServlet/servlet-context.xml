@@ -28,15 +28,18 @@
 		<beans:property name="password" value="toor"></beans:property>
 	</beans:bean>
 	
+	<!-- mappers 폴더 만들어줘야함 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
 		<beans:property name="mapperLocations" value="classpath:mappers/*.xml"></beans:property>
 	</beans:bean>
 	
+	<!-- sqlsession autowired가능 -->
 	<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
 	
+	<!-- domain-> repository스캔가능 -->
 	<beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<beans:property name="basePackage" value="com.instagram.app.domain"></beans:property>
 	</beans:bean>
