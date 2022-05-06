@@ -32,14 +32,16 @@ public class AuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
-		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
+		//로그인 여부확인
+		
+		HttpServletRequest httpServletRequest = (HttpServletRequest)request; //session객체->httpservletrqeust로 다운캐스팅
+		HttpServletResponse httpServletResponse = (HttpServletResponse)response; //sendredirect
 		
 		
 		HttpSession session = httpServletRequest.getSession();
 		User user=(User)session.getAttribute("principal");
 		
-		String path = httpServletRequest.getRequestURI();
+		String path = httpServletRequest.getRequestURI(); //해당 요청들에 대한 모든 url -> uri:포트번호 이후
 		
 		if(path.contains("/app/auth")) { //요청주소에 auth가 포함되어있을 때
 			if(user != null) { 
@@ -55,8 +57,7 @@ public class AuthFilter implements Filter {
 			}
 			
 		}
-		
-		
+
 		chain.doFilter(httpServletRequest, httpServletResponse);
 	}
 	

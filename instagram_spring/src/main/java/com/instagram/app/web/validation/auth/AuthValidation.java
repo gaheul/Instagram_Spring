@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AuthValidation {
-	public Map<Boolean, String> isNull(String name, String value){
+	public Map<Boolean, String> isNull(String name, String value){ //input태그의 name,value
 		Map<Boolean, String> result =  new HashMap<Boolean, String>();
 		if(value == null ) {
 			result.put(true, name + "의 값이 비어있습니다.");

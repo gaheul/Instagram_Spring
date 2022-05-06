@@ -38,7 +38,7 @@ public class AuthController {
 		
 		if(usernameIsNull != null) {
 			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode(usernameIsNull.get(true),"UTF-8");
-		}
+		} //띄어쓰기 들어가면 절대경로 /없으면 상대경로 ->/auth/signin...(자동으로 /app들어감)
 		if(passwordIsNull != null) {
 			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode(passwordIsNull.get(true),"UTF-8");
 		}
@@ -53,7 +53,7 @@ public class AuthController {
 			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode("로그인 정보를 확인해주세요.","UTF-8");
 		}
 		
-		return "redirect: /app/";
+		return "redirect: /app/"; //sendredirect => response.sendredirect/redirect: /절대경로(띄어쓰기 없으면 상대경로)
 	}
 	
 	
