@@ -6,7 +6,7 @@
  <mapper namespace="com.instagram.app.domain.user.UserRepository">
 	<select id="checkUsername" parameterType="String" resultType="Integer">
 		select
-			count(username)
+			count(username) <!-- username유니크키로 잡았기때문에 0또는1로 나옴 -->
 		from
 			user_mst
 		where
